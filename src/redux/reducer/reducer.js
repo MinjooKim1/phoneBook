@@ -1,8 +1,8 @@
 import ContactList from "../../component/ContactList";
 
 let initialState = {
-    ContactList: [],
-    keyword:"",
+  ContactList: [],
+  keyword: "",
 };
 
 function reducer(state, action) {
@@ -19,10 +19,11 @@ function reducer(state, action) {
           },
         ],
       };
-      case "SEARCH_NAME"
-          return {
-              ...state, keyword:payload.keyword
-          }
+    case "SEARCH_NAME":
+      return {
+        ...state,
+        keyword: payload.keyword,
+      };
     default:
       return { ...state };
   }
