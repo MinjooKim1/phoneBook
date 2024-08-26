@@ -4,7 +4,7 @@ import ContactItem from "./ContactItem";
 import { useSelector } from "react-redux";
 
 const ContactList = () => {
-  const { contactList, keyword } = useSelector((state) => state.contactList);
+  const { contactList = [], keyword = "" } = useSelector((state) => state);
   let [filteredList, setFilteredList] = useState([]);
   useEffect(() => {
     if (keyword !== "") {
@@ -19,12 +19,10 @@ const ContactList = () => {
       <SearchBox />
       <div className="contact-list">
         num:{filteredList.length}
-        {contactList.map((item) => (
+        {filteredList.map((item) => (
           <ContactItem item={item} />
         ))}
       </div>
-
-      <ContactItem />
     </div>
   );
 };

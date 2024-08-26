@@ -3,7 +3,7 @@ import { Button, Row, Col, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
 const SearchBox = () => {
-  let [keyword, setKeyWord] = useState("");
+  let [keyword, setKeyword] = useState("");
   let dispatch = useDispatch();
   let { contact } = useSelector((state) => state);
   const searchByName = (event) => {
@@ -15,7 +15,11 @@ const SearchBox = () => {
     <Form onSubmit={searchByName} className="search-form">
       <Row>
         <Col lg={10}>
-          <Form.Control type="text" placeholder="Enter Name" />
+          <Form.Control
+            type="text"
+            placeholder="Enter Name"
+            onChange={(event) => setKeyword(event.target.value)}
+          />
         </Col>
         <Col lg={2}>
           <Button type="submit">Search</Button>

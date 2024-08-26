@@ -1,17 +1,15 @@
-import ContactList from "../../component/ContactList";
-
 let initialState = {
-  ContactList: [],
+  contactList: [],
   keyword: "",
 };
 
-function reducer(state, action) {
+function reducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case "ADD_CONTACT":
       return {
         ...state,
-        ContactList: [
+        contactList: [
           ...state.contactList,
           {
             name: payload.name,

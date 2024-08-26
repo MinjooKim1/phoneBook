@@ -5,9 +5,10 @@ import { useDispatch } from "react-redux";
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState(0);
+  const dispatch = useDispatch();
   const addContact = (event) => {
     event.preventDefault();
-    dispatchEvent({
+    dispatch({
       type: "ADD_CONTACT",
       payload: { name, phoneNumber },
     });
